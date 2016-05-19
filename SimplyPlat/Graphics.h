@@ -12,8 +12,12 @@ class Graphics
 {
 	
 public:
-	void init(string title, int windowWidth, int windowHeight);
+	bool init(string title, int windowWidth, int windowHeight);
 	void draw();
+
+	SDL_Surface*getScreen();
+	SDL_Renderer*getRenderer();
+	SDL_Window*getWindow();
 
 protected:
 
@@ -24,14 +28,14 @@ private:
 	int windowHeight;
 	string title;
 
-	SDL_Surface*screen;
-	SDL_Renderer*gRenderer;
-	SDL_Window* gWindow;
+	 SDL_Surface*gScreen;
+	 SDL_Renderer*gRenderer;
+	 SDL_Window* gWindow;
 
 	
 
 
-}
+};
 
 
 #endif //GRAPHICS_H_
