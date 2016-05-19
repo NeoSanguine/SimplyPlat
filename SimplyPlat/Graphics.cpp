@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool Graphics::init(string title, int windowWidth, int windowHeight)
+bool Graphics::Init(string title, int windowWidth, int windowHeight)
 {
 	gScreen = NULL;
 	gRenderer = NULL;
@@ -29,25 +29,40 @@ bool Graphics::init(string title, int windowWidth, int windowHeight)
 //getters
 
 //Returns the main window
-SDL_Window* Graphics::getWindow()
+SDL_Window* Graphics::GetWindow()
 {
 	return gWindow;
 }
 
-SDL_Surface* Graphics::getScreen()
+SDL_Surface* Graphics::GetScreen()
 {
 	return gScreen;
 }
 
-SDL_Renderer* Graphics::getRenderer()
+SDL_Renderer* Graphics::GetRenderer()
 {
 	return gRenderer;
 }
 
 
 
-
-void Graphics::draw()
+void Graphics::RenderClear()
 {
-	
+	SDL_RenderClear( gRenderer );
+}
+
+void Graphics::RenderPresent()
+{
+	SDL_RenderPresent(gRenderer);
+}
+
+void Graphics::Clean()
+{
+	gScreen = NULL;
+	gRenderer = NULL;
+	gWindow = NULL;
+
+	SDL_FreeSurface( gScreen );
+	SDL_DestroyRenderer( gRenderer );
+	SDL_DestroyWindow( gWindow );
 }

@@ -5,6 +5,7 @@
 #include <String>
 #include <iostream>
 #include <SDL.h>
+#include <SDL_ttf.h>
 
 using namespace std;
 
@@ -12,12 +13,15 @@ class Graphics
 {
 	
 public:
-	bool init(string title, int windowWidth, int windowHeight);
-	void draw();
+	bool Init(string title, int windowWidth, int windowHeight);
+	
+	void RenderClear();
+	void RenderPresent();
+	void Clean();
 
-	SDL_Surface*getScreen();
-	SDL_Renderer*getRenderer();
-	SDL_Window*getWindow();
+	SDL_Surface*GetScreen();
+	SDL_Renderer*GetRenderer();
+	SDL_Window*GetWindow();
 
 protected:
 

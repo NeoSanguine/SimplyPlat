@@ -1,17 +1,21 @@
 #include <SDL.h>
 #include <stdio.h>
 #include <iostream>
-#include "Graphics.h"
+#include "GameEngine.h"
 
 int main( int argc, char* args[] )
 {
-	int i;
-	Graphics graphics;
+	GameEngine gameEngine;
 
-	graphics = Graphics();
-	graphics.init( "Simply Platform", 600, 400 );
+	gameEngine.Init();
 
-	std::cin >> i;
+	while (gameEngine.Running())
+	{
+		gameEngine.HandleEvents();
+		gameEngine.Update( 600 );
+		gameEngine.Render();
+	}
+	gameEngine.Clean();
 
 	return 0;
 }
