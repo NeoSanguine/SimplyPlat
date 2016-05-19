@@ -3,6 +3,8 @@
 #define GAMEENGINE_H_
 
 #include "Graphics.h"
+#include "Text2d.h"
+
 
 class GameEngine
 {
@@ -30,9 +32,12 @@ public:
 		return graphics;
 	}
 
+	Text2d text2d;
+
 protected:
 
 private:
+	
 	Graphics graphics;
 	bool running;
 

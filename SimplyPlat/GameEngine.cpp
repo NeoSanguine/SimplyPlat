@@ -1,5 +1,6 @@
 #include "GameEngine.h"
 #include "Console.h"
+#include "Text2d.h"
 
 bool GameEngine::Init()
 {
@@ -13,8 +14,12 @@ bool GameEngine::Init()
 
 
 
+	 this->text2d = Text2d();
+	 this->text2d.LoadFont( "bin/font/font.ttf", "base", 100, 100);
+
 	running = true;
-	return true;
+
+	return running;
 }
 
 void GameEngine::HandleEvents()
@@ -33,6 +38,7 @@ void GameEngine::Render()
 	graphics.RenderClear();
 
 	//Draw code goes here
+	this->text2d.Draw( "text", "base", {255,255,255,255}, graphics.GetRenderer() );
 	
 	graphics.RenderPresent();
 }
