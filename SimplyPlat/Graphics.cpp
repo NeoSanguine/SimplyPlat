@@ -20,7 +20,6 @@ bool Graphics::Init(string title, int windowWidth, int windowHeight)
 
 	if (gWindow == NULL)
 	{
-		//Console::Instance()Red( "Variable gWindow = null" );
 		Console::Instance()->Red( "Variable gWindow = null" );
 		return false;
 	}

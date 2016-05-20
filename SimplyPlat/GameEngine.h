@@ -4,6 +4,7 @@
 
 #include "Graphics.h"
 #include "Text2d.h"
+#include "StateManager.h"
 
 
 class GameEngine
@@ -38,6 +39,8 @@ protected:
 
 private:
 	
+	SDL_Event gEvent;
+	StateManager*stateManager;
 	Graphics graphics;
 	bool running;
 

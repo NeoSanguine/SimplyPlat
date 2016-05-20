@@ -17,14 +17,20 @@ Text2d::Text2d()
 	
 }
 
+void Text2d::ChangeText(string text)
+{
+	this->text = text;
+}
+
 //stores the font within a map to be called by the font name 
-void Text2d::LoadFont( string filePath, string fontName, int x, int y, int size, SDL_Color color)
+void Text2d::LoadFont( string text, string filePath, string fontName,  int x, int y, int size, SDL_Color color )
 {
 	this->filePath = filePath;
 	this->size = size;
 	this->color = color;
 	this->x = x;
 	this->y = y;
+	this->text = text;
 
 	this->font = NULL;
 
@@ -39,12 +45,13 @@ void Text2d::LoadFont( string filePath, string fontName, int x, int y, int size,
 }
 
 //draws the font to the screen
-void Text2d::Draw( string text, string fontName, SDL_Color color, SDL_Renderer*renderer )
+void Text2d::Draw(string fontName, SDL_Renderer*renderer )
 {
 	SDL_Surface*tempSurface = NULL;
 	SDL_Texture* tempTexture = NULL;
 
-	tempSurface = TTF_RenderText_Blended( fonts[fontName], text.c_str(), this->color );
+
+	tempSurface = TTF_RenderText_Blended( fonts[fontName], this->text.c_str(), this->color );
 
 	if (tempSurface == NULL)
 		Console::Instance()->Red( "Text2d: tempSurface = NULL " );
@@ -73,6 +80,18 @@ void Text2d::Draw( string text, string fontName, SDL_Color color, SDL_Renderer*r
 
 void Text2d:: Clean(string fontName)
 {
+
+	
+	this->font = NULL;
+	this->size = NULL;
+	this->x = 0;
+	this->y = 0;
+
+
+	this->filePath.clear();
+	this->text.clear();
+	this->fonts.clear();
+
 	fonts[fontName] = NULL;
 	TTF_CloseFont( fonts[fontName] );
 }
