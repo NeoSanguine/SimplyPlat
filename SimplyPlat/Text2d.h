@@ -20,6 +20,7 @@ public:
 
 	// helper methods
 	void ChangeText(string text);
+	void ChangeColor( SDL_Color color );
 
 protected:
 
@@ -31,6 +32,7 @@ private:
 
 	string filePath;
 	string text;
+	string fontName;
 
 	map<string, TTF_Font*>fonts;
 

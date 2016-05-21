@@ -12,11 +12,6 @@ bool GameEngine::Init()
 	}
 	Console::Instance()->Green( "Loaded graphics object" );
 
-
-
-	 this->text2d = Text2d();
-	 this->text2d.LoadFont( "TEST", "bin/font/font.ttf", "base", 100, 100);
-
 	 stateManager = new StateManager();
 	 
 	 if (!stateManager->Init())
@@ -68,9 +63,7 @@ void GameEngine::Render()
 	graphics.RenderClear();
 
 	//Draw code goes here
-	this->text2d.Draw( "base", graphics.GetRenderer() );
 	stateManager->Render(graphics.GetRenderer());
-	
 	
 	graphics.RenderPresent();
 }
@@ -78,7 +71,6 @@ void GameEngine::Render()
 void GameEngine::Clean()
 {
 	graphics.Clean();
-	text2d.Clean( "base" );
 
 	SDL_Quit();
 }

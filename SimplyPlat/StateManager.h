@@ -5,6 +5,7 @@
 #include <SDL.h>
 #include <vector>
 #include "State.h"
+#include "Text2d.h"
 
 using namespace std;
 
@@ -25,8 +26,16 @@ public:
 	void PushState( State*state );
 	void PopState();
 
-private:
+	Text2d*getText2d()
+	{
+		return text2d;
+	}
 
+protected :
+	
+
+private:
+	Text2d*text2d;
 	vector<State*> states;
 
 };

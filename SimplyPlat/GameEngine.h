@@ -33,8 +33,6 @@ public:
 		return graphics;
 	}
 
-	Text2d text2d;
-
 protected:
 
 private:

@@ -154,6 +154,7 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuState.cpp" />
+    <ClCompile Include="OptionState.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="Text2d.cpp" />
   </ItemGroup>
@@ -162,6 +163,7 @@
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="MenuState.h" />
+    <ClInclude Include="OptionState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="Text2d.h" />

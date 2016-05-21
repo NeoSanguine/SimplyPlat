@@ -22,6 +22,11 @@ void Text2d::ChangeText(string text)
 	this->text = text;
 }
 
+void Text2d::ChangeColor( SDL_Color color )
+{
+	this->color = color;
+}
+
 //stores the font within a map to be called by the font name 
 void Text2d::LoadFont( string text, string filePath, string fontName,  int x, int y, int size, SDL_Color color )
 {

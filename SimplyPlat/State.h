@@ -2,13 +2,18 @@
 #define STATE_H_
 
 #include <SDL.h>
+
+
 #pragma once
+
+class StateManager;
 
 class State
 {
 public:
 
-	State() {}
+	State(){}
+	State(StateManager* stateManager) {}
 
 	virtual bool Init() = 0;
 	virtual void HandleEvents(SDL_Event gEvent) = 0;
